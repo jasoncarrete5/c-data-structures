@@ -8,12 +8,12 @@
 #ifndef LINKEDLIST_H_
 #define LINKEDLIST_H_
 
-typedef struct node_ {
-	struct node_* next;
+typedef struct _node {
+	struct _node* next;
 	int data;
 } node;
 
-typedef struct linkedlist_ {
+typedef struct _linkedlist {
 	node* root;
 } linkedlist;
 

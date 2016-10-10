@@ -11,9 +11,12 @@
 
 int main() {
 	linkedlist list;
-	node root;
-	root.data = 1;
-	list.root = &root;
-	printf("%d\n", ll_size(&list));
+	node node1;
+	node1.data = 1;
+	node node2;
+	node2.data = 2;
+
+	ll_add(&list, &node1);
+	printf("Size: %d\n", ll_size(&list));
 	return 0;
 }
