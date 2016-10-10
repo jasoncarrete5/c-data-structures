@@ -10,13 +10,12 @@
 #include "linkedlist.h"
 
 int main() {
-	linkedlist list;
-	node node1;
-	node1.data = 1;
-	node node2;
-	node2.data = 2;
+	linkedlist* list = ll_construct();
+	int a = 1, b = 9;
+	ll_add(list, &a);
+	ll_add(list, &b);
+	printf("Size: %d\n", ll_size(list));
+	ll_destruct(list);
 
-	ll_add(&list, &node1);
-	printf("Size: %d\n", ll_size(&list));
 	return 0;
 }

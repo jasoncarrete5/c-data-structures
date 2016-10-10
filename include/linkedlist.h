@@ -8,16 +8,22 @@
 #ifndef LINKEDLIST_H_
 #define LINKEDLIST_H_
 
-typedef struct _node {
-	struct _node* next;
-	int data;
-} node;
+/*******
+ * Node
+ *******/
 
-typedef struct _linkedlist {
-	node* root;
-} linkedlist;
+typedef struct node node;
 
-void ll_add(linkedlist* list, node* newNode);
+/*************
+ * LinkedList
+ *************/
+
+typedef struct linkedlist linkedlist;
+
+linkedlist* ll_construct();
+void ll_destruct(linkedlist* list);
+void ll_add(linkedlist* list, void* data);
 int ll_size(linkedlist* list);
+void ll_clear(linkedlist* list);
 
 #endif /* LINKEDLIST_H_ */
