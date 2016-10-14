@@ -5,8 +5,8 @@
  *      Author: Jason
  */
 
-#include <linkedlist.h>
 #include <stdlib.h>
+#include "linkedlist.h"
 
 /*******
  * Node
