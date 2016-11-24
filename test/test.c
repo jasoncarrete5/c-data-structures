@@ -23,6 +23,7 @@ int main(int argc, char** argv) {
 			return 1;
 		}
 	}
+}
 
 int test_linkedlist() {
 	linkedlist* list = ll_construct();
