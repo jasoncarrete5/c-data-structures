@@ -1,0 +1,10 @@
+apply plugin: 'c'
+apply plugin: 'cunit-test-suite'
+
+version = "0.0.0"
+
+model {
+    components {
+        cds(NativeLibrarySpec)
+    }
+}
