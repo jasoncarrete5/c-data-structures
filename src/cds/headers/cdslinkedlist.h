@@ -1,5 +1,5 @@
 /*
- * linkedlist.h
- * 
+ * cdslinkedlist.h
+ *
  * Author: Jason R. Carrete
  */
