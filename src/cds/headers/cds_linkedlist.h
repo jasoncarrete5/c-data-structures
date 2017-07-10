@@ -3,3 +3,5 @@
  *
  * Author: Jason R. Carrete
  */
+
+int func();
