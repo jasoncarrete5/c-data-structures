@@ -1,7 +1,5 @@
 /*
- * cdslinkedlist.h
+ * cds_linkedlist.h
  *
  * Author: Jason R. Carrete
  */
-
-int func();

@@ -1,5 +1,5 @@
 /*
- * cdslinkedlist.c
+ * cds_linkedlist.c
  *
  * Author: Jason R. Carrete
  */
