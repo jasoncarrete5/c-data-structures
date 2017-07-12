@@ -1,5 +1,5 @@
 # c-data-structures
-A collection of simple data structures in C
+A collection of simple data structures implemented in C
 ## Data Structures
 - [ ] Linked List
 - [ ] Queue
