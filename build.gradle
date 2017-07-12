@@ -12,4 +12,41 @@ model {
         debug
         release
     }
+    
+    repositories {
+        libs(PrebuiltLibraries) {
+            cunit {
+                headers.srcDir "libs/cunit/2.1-2/include"
+                binaries.withType(StaticLibraryBinary) {
+                    staticLibraryFile = file("libs/cunit/2.1-2/lib/" + findCUnitLibForPlatform(targetPlatform))
+                }
+            }
+        }
+    }
+    
+    binaries {
+        withType(CUnitTestSuiteBinarySpec) {
+            lib library: 'cunit', linkage: 'static'
+        }
+    }
+    
+    testSuites {
+        cdsTest(CUnitTestSuiteSpec) {
+            testing $.components.cds
+        }
+    }
+}
+
+def findCUnitLibForPlatform(Platform platform) {
+    if (platform.operatingSystem.windows) {
+//        return "vs2010/cunit.lib"
+//        return "vs2013/cunit.lib"
+//        return "vs2015/cunit.lib"
+//        return "cygwin/cunit.lib"
+        return "mingw/cunit.lib"
+    } else if (platform.operatingSystem.macOsX) {
+        return "osx/libcunit.a"
+    } else {
+        return "linux/libcunit.a"
+    }
 }
