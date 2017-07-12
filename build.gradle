@@ -14,51 +14,51 @@ apply plugin: 'cunit-test-suite'
 version = '0.0.0'
 
 model {
-    components {
-        cds(NativeLibrarySpec)
-    }
-    
-    buildTypes {
-        debug
-        release
-    }
-    
-    repositories {
-        libs(PrebuiltLibraries) {
-            cunit {
-                headers.srcDir "libs/cunit/2.1-2/include"
-                binaries.withType(StaticLibraryBinary) {
-                    staticLibraryFile = file("libs/cunit/2.1-2/lib/" + findCUnitLibForPlatform(targetPlatform))
-                }
-            }
-        }
-    }
-    
-    binaries {
-        withType(CUnitTestSuiteBinarySpec) {
-            lib library: 'cunit', linkage: 'static'
-        }
-    }
-    
-    testSuites {
-        cdsTest(CUnitTestSuiteSpec) {
-            testing $.components.cds
-        }
-    }
+	components {
+		cds(NativeLibrarySpec)
+	}
+
+	buildTypes {
+		debug
+		release
+	}
+
+	repositories {
+		libs(PrebuiltLibraries)
+			cunit {
+				headers.srcDir "libs/cunit/2.1-2/include"
+				binaries.withType(StaticLibraryBinary) {
+					staticLibraryFile = file("libs/cunit/2.1-2/lib/" + findCUnitLibForPlatform(targetPlatform))
+				}
+			}
+		}
+	}
+
+	binaries {
+		withType(CUnitTestSuiteBinarySpec) {
+			lib library: 'cunit', linkage: 'static'
+		}
+	}
+
+	testSuites {
+		cdsTest(CUnitTestSuiteSpec) {
+			testing $.components.cds
+		}
+	}
 }
 
 def findCUnitLibForPlatform(Platform platform) {
-    if (platform.operatingSystem.windows) {
-        return "$WinCUnit/cunit.lib"
-    } else if (platform.operatingSystem.macOsX) {
-        return "osx/libcunit.a"
-    } else {
-        return "linux/libcunit.a"
-    }
+	if (platform.operatingSystem.windows) {
+		return "$WinCUnit/cunit.lib"
+	} else if (platform.operatingSystem.macOsX) {
+		return "osx/libcunit.a"
+	} else {
+		return "linux/libcunit.a"
+	}
 }
 
 project.gradle.buildFinished { buildResult ->
-    if (buildResult.getFailure() != null) {
-        println "Did you set the 'WinCUnit' property?"
-    }
+	if (buildResult.getFailure() != null) {
+		println "Did you set the 'WinCUnit' property?"
+	}
 }
