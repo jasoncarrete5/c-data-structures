@@ -1,3 +1,13 @@
+/*
+ * NOTE FOR WINDOWS USERS:
+ * Currently, the Gradle model for Platform does not allow us to differentiate between different
+ * c-runtime, ABI or other binary variants. This means that it is not possible to differentiate
+ * between a prebuilt library binary compatible with VS2010 vs VS2013.
+ *
+ * As such, this sample will only work on Windows after setting the 'WinCUnit' to match your toolchain
+ * Valid values for WinCUnit: [cygwin, mingw, vs2010, vs2013, vs2015]
+ */
+
 apply plugin: 'c'
 apply plugin: 'cunit-test-suite'
 
@@ -39,14 +49,16 @@ model {
 
 def findCUnitLibForPlatform(Platform platform) {
     if (platform.operatingSystem.windows) {
-//        return "vs2010/cunit.lib"
-//        return "vs2013/cunit.lib"
-//        return "vs2015/cunit.lib"
-//        return "cygwin/cunit.lib"
-        return "mingw/cunit.lib"
+        return "$WinCUnit/cunit.lib"
     } else if (platform.operatingSystem.macOsX) {
         return "osx/libcunit.a"
     } else {
         return "linux/libcunit.a"
+    }
+}
+
+project.gradle.buildFinished { buildResult ->
+    if (buildResult.getFailure() != null) {
+        println "Did you set the 'WinCUnit' property?"
     }
 }

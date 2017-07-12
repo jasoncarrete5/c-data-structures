@@ -69,3 +69,4 @@ Testing
 # Gradle
 build/
 .gradle/
+gradle.properties
