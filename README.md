@@ -1,4 +1,4 @@
-# c-data-structures
+# C Data Structures
 A collection of simple data structures implemented in C
 ## Data Structures
 - [ ] Linked List
