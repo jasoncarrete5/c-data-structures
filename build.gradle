@@ -7,4 +7,9 @@ model {
     components {
         cds(NativeLibrarySpec)
     }
+    
+    buildTypes {
+        debug
+        release
+    }
 }
