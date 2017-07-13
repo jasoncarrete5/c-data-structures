@@ -38,6 +38,12 @@ model {
 		withType(CUnitTestSuiteBinarySpec) {
 			lib library: 'cunit', linkage: 'static'
 		}
+		
+		all {
+			if (toolChain in Gcc && buildType == buildTypes.release) {
+				cCompiler.args "-DNDEBUG"
+			}
+		}
 	}
 
 	testSuites {
