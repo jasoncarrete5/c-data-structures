@@ -24,7 +24,7 @@ model {
 	}
 
 	repositories {
-		libs(PrebuiltLibraries)
+		libs(PrebuiltLibraries) {
 			cunit {
 				headers.srcDir "libs/cunit/2.1-2/include"
 				binaries.withType(StaticLibraryBinary) {
@@ -49,6 +49,7 @@ model {
 
 def findCUnitLibForPlatform(Platform platform) {
 	if (platform.operatingSystem.windows) {
+		assert project.hasProperty('WinCUnit')
 		return "$WinCUnit/cunit.lib"
 	} else if (platform.operatingSystem.macOsX) {
 		return "osx/libcunit.a"
