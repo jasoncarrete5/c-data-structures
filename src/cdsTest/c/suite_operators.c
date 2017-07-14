@@ -7,16 +7,19 @@
 #include <CUnit/Basic.h>
 #include "gradle_cunit_register.h"
 #include "tests.h"
+#include <stdio.h>
 
-int suite_init() {
+int suite_linked_list_init() {
+	printf("*** Init LinkedList Suite ***\n");
 	return 0;
 }
 
-int suite_clean() {
+int suite_linked_list_clean() {
+	printf("*** Clean LinkedList Suite ***\n");
 	return 0;
 }
 
 void gradle_cunit_register() {
-	CU_pSuite pSuiteLinkedList = CU_add_suite("LinkedList implementation tests", suite_init, suite_clean);
+	CU_pSuite pSuiteLinkedList = CU_add_suite("LinkedList implementation tests", suite_linked_list_init, suite_linked_list_clean);
 	CU_add_test(pSuiteLinkedList, "LinkedList_creation", test_create_linked_list);
 }
