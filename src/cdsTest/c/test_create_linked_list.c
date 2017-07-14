@@ -6,5 +6,4 @@ void test_create_linked_list() {
 	printf("Created LinkedList: %p\n", list);
 	cds_deleteLinkedList(list);
 	printf("Deleted LinkedList: %p\n", list);
-	//test
 }
