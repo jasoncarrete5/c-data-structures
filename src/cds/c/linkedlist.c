@@ -6,7 +6,7 @@
 #include "CDS/linkedlist.h"
 
 cds_LinkedList* cds_createLinkedList() {
-    cds_LinkedList* list = malloc(sizeof(cds_LinkedList));
+    cds_LinkedList* list = (cds_LinkedList*)malloc(sizeof(cds_LinkedList));
     list->size = 0;
     list->head = NULL;
     list->tail = NULL;
