@@ -13,7 +13,7 @@ typedef struct cds_LinkedNode {
 } cds_LinkedNode;
 
 typedef struct {
-	int size;
+	unsigned int size;
 	cds_LinkedNode* head;
 	cds_LinkedNode* tail;
 } cds_LinkedList;
