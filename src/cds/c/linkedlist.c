@@ -17,3 +17,7 @@ void cds_deleteLinkedList(cds_LinkedList* list) {
     // TODO recursivly free LinkedNodes
     free(list);
 }
+
+unsigned int cds_size(cds_LinkedList* list) {
+    return list->size;
+}

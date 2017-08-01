@@ -20,3 +20,4 @@ typedef struct {
 
 cds_LinkedList* cds_createLinkedList();
 void cds_deleteLinkedList(cds_LinkedList* list);
+unsigned int cds_size();
