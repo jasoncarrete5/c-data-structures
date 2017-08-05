@@ -18,6 +18,6 @@ typedef struct {
 	cds_LinkedNode* tail;
 } cds_LinkedList;
 
-cds_LinkedList* cds_createLinkedList();
+void cds_createLinkedList(cds_LinkedList* list);
 void cds_deleteLinkedList(cds_LinkedList* list);
 unsigned int cds_size();
