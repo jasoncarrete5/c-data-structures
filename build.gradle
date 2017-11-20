@@ -38,7 +38,7 @@ model {
 		withType(CUnitTestSuiteBinarySpec) {
 			lib library: 'cunit', linkage: 'static'
 		}
-		
+
 		all {
 			cCompiler.args "-std=c11"
 			if (toolChain in Gcc) {
@@ -59,10 +59,10 @@ model {
 }
 
 def findCUnitLibForPlatform(Platform platform) {
-	if (platform.operatingSystem.windows) {
+	if (platform.getOperatingSystem() == "windows") {
 		assert project.hasProperty('WinCUnit')
 		return "$WinCUnit/cunit.lib"
-	} else if (platform.operatingSystem.macOsX) {
+	} else if (platform.getOperatingSystem() == "osx") {
 		return "osx/libcunit.a"
 	} else {
 		return "linux/libcunit.a"
