@@ -19,4 +19,4 @@ between a prebuilt library binary compatible with VS2010 vs VS2013.*
 *As such, this sample will only work on Windows after setting the 'WinCUnit' to match your toolchain
 Valid values for WinCUnit: [cygwin, mingw, vs2010, vs2013, vs2015]*
 #### \*nix
-Execute `./gradlew build` in the proect root
+Execute `./gradlew build` in the project root
