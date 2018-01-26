@@ -41,12 +41,10 @@ model {
 
 		all {
 			cCompiler.args "-std=c11"
-			if (toolChain in Gcc) {
-				if (buildType == buildTypes.release) {
-					cCompiler.args "-DNDEBUG"
-				} else if (buildType == buildTypes.debug) {
-					cCompiler.args "-Wall"
-				}
+			if (buildType == buildTypes.release) {
+				cCompiler.args "-DNDEBUG"
+			} else if (buildType == buildTypes.debug) {
+				cCompiler.args "-Wall"
 			}
 		}
 	}
