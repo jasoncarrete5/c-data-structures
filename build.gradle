@@ -68,9 +68,3 @@ def findCUnitLibForPlatform(Platform platform) {
 		return "linux/libcunit.a"
 	}
 }
-
-project.gradle.buildFinished { buildResult ->
-	if (buildResult.getFailure() != null) {
-		println "Did you set the 'WinCUnit' property?"
-	}
-}
