@@ -43,3 +43,14 @@ void cds_LinkedListAppend(cds_LinkedList *list, void *data) {
 
 	list->logicalLength++;
 }
+
+void cds_LinkedListForEach(cds_LinkedList *list, cds_ListIterator iter) {
+	cds_LinkedNode *cur = list->head;
+	unsigned char stop = 0;
+	while (cur && !stop) {
+		if (iter) {
+			stop = iter(cur->data);
+		}
+		cur = cur->next;
+	}
+}
