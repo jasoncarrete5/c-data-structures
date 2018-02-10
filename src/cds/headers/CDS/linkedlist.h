@@ -43,6 +43,11 @@ void cds_LinkedListDelete(cds_LinkedList *list);
 void cds_LinkedListAppend(cds_LinkedList *list, void *data);
 
 /*
+ * Prepends data to the beginning of the LinkedList.
+ */
+void cds_LinkedListPrepend(cds_LinkedList *list, void *data);
+
+/*
  * Applys iter on every element in list.
  */
 void cds_LinkedListForEach(cds_LinkedList *list, cds_ListIterator iter);

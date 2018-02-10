@@ -60,3 +60,20 @@ void test_foreach_linked_list() {
 
 	cds_LinkedListDelete(&list);
 }
+
+void test_prepend_linked_list() {
+	cds_LinkedList list;
+	cds_LinkedListCreate(&list, sizeof(int), NULL);
+	for (int i = 0; i < 10; i++) {
+		cds_LinkedListPrepend(&list, &i);
+	}
+
+	cds_LinkedNode *cur = list.head;
+	int i = 9;
+	while (cur) {
+		CU_ASSERT_EQUAL(*(int*)(cur->data), i--);
+		cur = cur->next;
+	}
+
+	cds_LinkedListDelete(&list);
+}
