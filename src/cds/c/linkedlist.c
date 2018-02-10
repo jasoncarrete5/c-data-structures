@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "CDS/linkedlist.h"
 
-void cds_LinkedListCreate(cds_LinkedList* list, size_t elementSize, FreeFunction freeFn) {
+void cds_LinkedListCreate(cds_LinkedList* list, size_t elementSize, cds_FreeFunction freeFn) {
 	list->logicalLength = 0;
 	list->elementSize = elementSize;
 	list->freeFn = freeFn;

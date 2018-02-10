@@ -9,8 +9,8 @@
 #include <stddef.h>
 
 // Used to free dynamic data
-typedef void (*FreeFunction)(void *);
-typedef void (*ListIterator)(void *);
+typedef void (*cds_FreeFunction)(void *);
+typedef void (*cds_ListIterator)(void *);
 
 typedef struct cds_LinkedNode {
 	struct cds_LinkedNode *prev;
@@ -21,7 +21,7 @@ typedef struct cds_LinkedNode {
 typedef struct {
 	size_t logicalLength;
 	size_t elementSize;
-	FreeFunction freeFn;
+	cds_FreeFunction freeFn;
 	cds_LinkedNode *head;
 	cds_LinkedNode *tail;
 } cds_LinkedList;
@@ -29,7 +29,7 @@ typedef struct {
 /*
  * Initializes a new LinkedList.
  */
-void cds_LinkedListCreate(cds_LinkedList *list, size_t elementSize, FreeFunction freeFn);
+void cds_LinkedListCreate(cds_LinkedList *list, size_t elementSize, cds_FreeFunction freeFn);
 
 /*
  * Frees all dynamically allocated memory used by the LinkedList but not the LinkedList itself.
