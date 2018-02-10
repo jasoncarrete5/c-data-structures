@@ -22,4 +22,5 @@ int suite_linked_list_clean() {
 void gradle_cunit_register() {
 	CU_pSuite pSuiteLinkedList = CU_add_suite("LinkedList implementation tests", suite_linked_list_init, suite_linked_list_clean);
 	CU_add_test(pSuiteLinkedList, "LinkedList_creation", test_create_linked_list);
+	CU_add_test(pSuiteLinkedList, "LinkedList_append", test_append_linked_list);
 }
