@@ -32,6 +32,7 @@ void cds_LinkedListAppend(cds_LinkedList *list, void *data) {
 	cds_LinkedNode *node = malloc(sizeof(cds_LinkedNode));
 	node->data = malloc(list->elementSize);
 	node->next = NULL;
+	node->prev = list->tail;
 	memcpy(node->data, data, list->elementSize);
 
 	if (!list->tail) {
