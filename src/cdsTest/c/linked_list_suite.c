@@ -94,3 +94,16 @@ void test_insert_linked_list() {
 
 	cds_LinkedListDelete(&list);
 }
+
+void test_get_linked_list() {
+	cds_LinkedList list;
+	cds_LinkedListCreate(&list, sizeof(int), NULL);
+	for (int i = 0; i < 10; i++) {
+		cds_LinkedListAppend(&list, &i);
+	}
+
+	int *value = (int *)cds_LinkedListGet(&list, 3);
+	CU_ASSERT_EQUAL(*value, 3);
+
+	cds_LinkedListDelete(&list);
+}

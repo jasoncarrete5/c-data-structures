@@ -26,4 +26,5 @@ void gradle_cunit_register() {
 	CU_add_test(pSuiteLinkedList, "LinkedList_foreach", test_foreach_linked_list);
 	CU_add_test(pSuiteLinkedList, "LinkedList_prepend", test_prepend_linked_list);
 	CU_add_test(pSuiteLinkedList, "LinkedList_insert", test_insert_linked_list);
+	CU_add_test(pSuiteLinkedList, "LinkedList_get", test_get_linked_list);
 }

@@ -56,3 +56,8 @@ void cds_LinkedListForEach(cds_LinkedList *list, cds_ListIterator iter);
  *	Inserts data at the desired index in the list.
  */
 void cds_LinkedListInsert(cds_LinkedList *list, size_t index, void *data);
+
+/*
+ * Gets the element at the specified index.
+ */
+void * cds_LinkedListGet(cds_LinkedList *list, size_t index);

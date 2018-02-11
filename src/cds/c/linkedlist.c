@@ -119,3 +119,24 @@ void cds_LinkedListInsert(cds_LinkedList *list, size_t index, void *data) {
 
 	list->logicalLength++;
 }
+
+void * cds_LinkedListGet(cds_LinkedList *list, size_t index) {
+	if (index < 0 || index >= list->logicalLength) return NULL;
+
+	cds_LinkedNode *cur;
+	if (index <= list->logicalLength / 2) {
+		size_t i = 0;
+		cur = list->head;
+		while (i++ < index && cur) {
+			cur = cur->next;
+		}
+	} else {
+		size_t i = list->logicalLength - 1;
+		cur = list->tail;
+		while (i-- > index && cur) {
+			cur = cur->prev;
+		}
+	}
+
+	return cur->data;
+}
