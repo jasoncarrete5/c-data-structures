@@ -51,3 +51,8 @@ void cds_LinkedListPrepend(cds_LinkedList *list, void *data);
  * Applys iter on every element in list.
  */
 void cds_LinkedListForEach(cds_LinkedList *list, cds_ListIterator iter);
+
+/*
+ *	Inserts data at the desired index in the list.
+ */
+void cds_LinkedListInsert(cds_LinkedList *list, size_t index, void *data);

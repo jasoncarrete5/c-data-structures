@@ -71,3 +71,13 @@ void cds_LinkedListForEach(cds_LinkedList *list, cds_ListIterator iter) {
 		cur = cur->next;
 	}
 }
+
+void cds_LinkedListInsert(cds_LinkedList *list, size_t index, void *data) {
+	cds_LinkedNode *node = malloc(sizeof(cds_LinkedNode));
+	node->data = malloc(list->elementSize);
+	node->next = NULL;
+	node->prev = NULL;
+	memcpy(node->data, data, list->elementSize);
+
+	
+}
