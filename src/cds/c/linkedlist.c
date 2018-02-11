@@ -79,11 +79,43 @@ void cds_LinkedListForEach(cds_LinkedList *list, cds_ListIterator iter) {
 }
 
 void cds_LinkedListInsert(cds_LinkedList *list, size_t index, void *data) {
-	cds_LinkedNode *node = malloc(sizeof(cds_LinkedNode));
-	node->data = malloc(list->elementSize);
-	node->next = NULL;
-	node->prev = NULL;
-	memcpy(node->data, data, list->elementSize);
+	if (index > list->logicalLength || index < 0) {
+		return;
+	}
 
-	
+	if (index == 0) {
+		cds_LinkedListPrepend(list, data);
+		return;
+	} else if (index == list->logicalLength) {
+		cds_LinkedListAppend(list, data);
+		return;
+	}
+
+	cds_LinkedNode *node = newLinkedNode(list->elementSize, data);
+	cds_LinkedNode *cur;
+	size_t i = 0;
+
+	if (index <= list->logicalLength / 2) {
+		cur = list->head;
+		while (cur && i < index) {
+			cur = cur->next;
+			i++;
+		}
+	} else {
+		i = list->logicalLength - 1;
+		cur = list->tail;
+		while (cur && i > index) {
+			cur = cur->prev;
+			i--;
+		}
+	}
+
+	node->next = cur;
+	node->prev = cur->prev;
+	if (cur->prev) {
+		cur->prev->next = node;
+	}
+	cur->prev = node;
+
+	list->logicalLength++;
 }

@@ -77,3 +77,20 @@ void test_prepend_linked_list() {
 
 	cds_LinkedListDelete(&list);
 }
+
+void test_insert_linked_list() {
+	cds_LinkedList list;
+	cds_LinkedListCreate(&list, sizeof(int), NULL);
+	for (int i = 0; i < 10; i++) {
+		cds_LinkedListAppend(i);
+	}
+
+	int n = 26;
+	cds_LinkedListInsert(&list, 0, &n);
+	cds_LinkedListInsert(&list, list.logicalLength - 1, &n);
+	cds_LinkedListInsert(&list, 5, &n);
+
+	// Should've probably implemented a get function first, eh?
+
+	cds_LinkedListDelete(&list);
+}
