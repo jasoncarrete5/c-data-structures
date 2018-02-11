@@ -5,6 +5,18 @@
 #include <stdlib.h>
 #include "CDS/linkedlist.h"
 
+/*
+ * Initializes a new LinkedNode with data.
+ */
+static cds_LinkedNode * newLinkedNode(size_t elementSize, void *data) {
+	cds_LinkedNode *node = malloc(sizeof(cds_LinkedNode));
+	node->data = malloc(elementSize);
+	node->next = NULL;
+	node->prev = NULL;
+	memcpy(node->data, data, elementSize);
+	return node;
+}
+
 void cds_LinkedListCreate(cds_LinkedList* list, size_t elementSize, cds_FreeFunction freeFn) {
 	list->logicalLength = 0;
 	list->elementSize = elementSize;
@@ -29,11 +41,8 @@ void cds_LinkedListDelete(cds_LinkedList *list) {
 }
 
 void cds_LinkedListAppend(cds_LinkedList *list, void *data) {
-	cds_LinkedNode *node = malloc(sizeof(cds_LinkedNode));
-	node->data = malloc(list->elementSize);
-	node->next = NULL;
+	cds_LinkedNode *node = newLinkedNode(list->elementSize, data);
 	node->prev = list->tail;
-	memcpy(node->data, data, list->elementSize);
 
 	if (!list->tail) {
 		list->head = list->tail = node;
@@ -46,11 +55,8 @@ void cds_LinkedListAppend(cds_LinkedList *list, void *data) {
 }
 
 void cds_LinkedListPrepend(cds_LinkedList *list, void *data) {
-	cds_LinkedNode *node = malloc(sizeof(cds_LinkedNode));
-	node->data = malloc(list->elementSize);
+	cds_LinkedNode *node = newLinkedNode(list->elementSize, data);
 	node->next = list->head;
-	node->prev = NULL;
-	memcpy(node->data, data, list->elementSize);
 
 	list->head = node;
 
