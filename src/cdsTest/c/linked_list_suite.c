@@ -82,7 +82,7 @@ void test_insert_linked_list() {
 	cds_LinkedList list;
 	cds_LinkedListCreate(&list, sizeof(int), NULL);
 	for (int i = 0; i < 10; i++) {
-		cds_LinkedListAppend(i);
+		cds_LinkedListAppend(&list, &i);
 	}
 
 	int n = 26;
