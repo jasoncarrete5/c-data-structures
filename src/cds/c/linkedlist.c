@@ -140,3 +140,39 @@ void * cds_LinkedListGet(cds_LinkedList *list, size_t index) {
 
 	return cur->data;
 }
+
+void * cds_LinkedListRemoveIndex(cds_LinkedList *list, size_t index) {
+	if (index < 0 || index >= list->logicalLength) return NULL;
+
+	cds_LinkedNode *cur;
+	if (index <= list->logicalLength / 2) {
+		size_t i = 0;
+		cur = list->head;
+		while (i++ < index && cur) {
+			cur = cur->next;
+		}
+	} else {
+		size_t i = list->logicalLength - 1;
+		cur = list->tail;
+		while (i-- > index && cur) {
+			cur = cur->prev;
+		}
+	}
+
+	void *removed = cur->data;
+
+	if (cur->prev) {
+		cur->prev->next = cur->next;
+	} else {
+		list->head = cur->next;
+	}
+
+	if (cur->next) {
+		cur->next->prev = cur->prev;
+	} else {
+		list->tail = cur->prev;
+	}
+
+	list->logicalLength--;
+	return removed;
+}

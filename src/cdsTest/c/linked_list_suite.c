@@ -107,3 +107,17 @@ void test_get_linked_list() {
 
 	cds_LinkedListDelete(&list);
 }
+
+void test_remove_index_linked_list() {
+	cds_LinkedList list;
+	cds_LinkedListCreate(&list, sizeof(int), NULL);
+	for (int i = 0; i < 10; i++) {
+		cds_LinkedListAppend(&list, &i);
+	}
+
+	int *value = (int *)cds_LinkedListRemoveIndex(&list, 8);
+	CU_ASSERT_EQUAL(*value, 8);
+	CU_ASSERT_EQUAL(list.logicalLength, 9);
+
+	cds_LinkedListDelete(&list);
+}
