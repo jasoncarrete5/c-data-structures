@@ -61,3 +61,8 @@ void cds_LinkedListInsert(cds_LinkedList *list, size_t index, void *data);
  * Gets the element at the specified index.
  */
 void * cds_LinkedListGet(cds_LinkedList *list, size_t index);
+
+/*
+ * Remove and the return the data at the specified index.
+ */
+void * cds_LinkedListRemoveIndex(cds_LinkedList *list, size_t index);
