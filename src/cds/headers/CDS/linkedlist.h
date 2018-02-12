@@ -70,6 +70,8 @@ void * cds_LinkedListGet(cds_LinkedList *list, size_t index);
 void * cds_LinkedListRemoveIndex(cds_LinkedList *list, size_t index);
 
 /*
- *
+ * Removes the specified element from the list if it compares equal using
+ * the Comparator. If multiple values are equal, only the first equal
+ * value is removed.
  */
 size_t cds_LinkedListRemove(cds_LinkedList *list, void *removeData, cds_Comparator cmp);
