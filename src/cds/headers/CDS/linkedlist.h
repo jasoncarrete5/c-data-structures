@@ -7,13 +7,12 @@
 #pragma once
 
 #include <stddef.h>
+#include "comparator.h"
 
 // Used to free dynamic data
 typedef void (*cds_FreeFunction)(void *);
 // Returns 0 if the list should continue iterating over elements, otherwise 1.
 typedef unsigned char (*cds_ListIterator)(void *);
-// Compares the data at two void pointers
-typedef int (*cds_Comparator)(void *a, void *b);
 
 typedef struct cds_LinkedNode {
 	struct cds_LinkedNode *prev;
