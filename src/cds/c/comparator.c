@@ -10,7 +10,8 @@
  * Lexicographical char comparator
  */
 int cds_CharComparator(void *a, void *b) {
-	
+	char *chA = (char *)a, *chB = (char *)b;
+	return *chA - *chB;
 }
 
 int cds_ShortComparator(void *a, void *b) {
