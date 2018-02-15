@@ -7,6 +7,7 @@
 #pragma once
 
 #include <stddef.h>
+#include "CDS/comparator.h"
 
 // Used to free dynamic data
 typedef void (*cds_FreeFunction)(void *);
@@ -66,3 +67,10 @@ void * cds_LinkedListGet(cds_LinkedList *list, size_t index);
  * Remove and the return the data at the specified index.
  */
 void * cds_LinkedListRemoveIndex(cds_LinkedList *list, size_t index);
+
+/*
+ * Removes the specified element from the list if it compares equal using
+ * the Comparator. If multiple values are equal, only the first equal
+ * value is removed.
+ */
+size_t cds_LinkedListRemove(cds_LinkedList *list, void *removeData, cds_Comparator cmp);
