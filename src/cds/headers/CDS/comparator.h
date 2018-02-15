@@ -4,6 +4,8 @@
  * Author: Jason R. Carrete
  */
 
+#pragma once
+
 /*
  * Compares the data for two void pointers. If a < b, then the
  * comparator returns '< 0'. If a > b, then the comparator returns '> 0'.
