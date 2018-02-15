@@ -7,7 +7,7 @@
 #pragma once
 
 #include <stddef.h>
-#include "comparator.h"
+#include "CDS/comparator.h"
 
 // Used to free dynamic data
 typedef void (*cds_FreeFunction)(void *);
