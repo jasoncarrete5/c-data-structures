@@ -10,3 +10,4 @@ void test_char_comparator();
 void test_short_comparator();
 void test_int_comparator();
 void test_long_int_comparator();
+void test_long_long_comparator();

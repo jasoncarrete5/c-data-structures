@@ -30,7 +30,8 @@ int cds_LongIntComparator(void *a, void *b) {
 }
 
 int cds_LongLongComparator(void *a, void *b) {
-
+	long long *longA = (long long *)a, *longB = (long long *)b;
+	return *longA - *longB;
 }
 
 int cds_UCharComparator(void *a, void *b) {

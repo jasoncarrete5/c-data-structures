@@ -62,3 +62,18 @@ void test_long_int_comparator() {
 	result = cds_LongIntComparator(&a, &b);
 	CU_ASSERT_EQUAL(result, 0);
 }
+
+void test_long_long_comparator() {
+	long long a = 1, b = 2;
+	int result;
+
+	result = cds_LongLongComparator(&a, &b);
+	CU_ASSERT(result < 0);
+
+	result = cds_LongLongComparator(&b, &a);
+	CU_ASSERT(result > 0);
+
+	b = 1;
+	result = cds_LongLongComparator(&a, &b);
+	CU_ASSERT_EQUAL(result, 0);
+}
