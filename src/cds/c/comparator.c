@@ -20,7 +20,8 @@ int cds_ShortComparator(void *a, void *b) {
 }
 
 int cds_IntComparator(void *a, void *b) {
-
+	int *intA = (int *)a, *intB = (int *)b;
+	return *intA - *intB;
 }
 
 int cds_LongIntComparator(void *a, void *b) {

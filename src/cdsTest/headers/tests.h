@@ -8,3 +8,4 @@ void test_remove_index_linked_list();
 
 void test_char_comparator();
 void test_short_comparator();
+void test_int_comparator();
