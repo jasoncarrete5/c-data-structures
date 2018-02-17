@@ -5,3 +5,15 @@ void test_prepend_linked_list();
 void test_insert_linked_list();
 void test_get_linked_list();
 void test_remove_index_linked_list();
+
+void test_char_comparator();
+void test_short_comparator();
+void test_int_comparator();
+void test_long_int_comparator();
+void test_long_long_comparator();
+void test_u_char_comparator();
+void test_u_short_comparator();
+void test_u_int_comparator();
+void test_u_long_int_comparator();
+void test_u_long_long_comparator();
+void test_cstring_comparator();

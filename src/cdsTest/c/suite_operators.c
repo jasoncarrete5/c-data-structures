@@ -19,6 +19,16 @@ int suite_linked_list_clean() {
 	return 0;
 }
 
+int suite_comparator_init() {
+	printf("*** Init Comparator Suite ***\n");
+	return 0;
+}
+
+int suite_comparator_clean() {
+	printf("*** Clean Comparator Suite ***\n");
+	return 0;
+}
+
 void gradle_cunit_register() {
 	CU_pSuite pSuiteLinkedList = CU_add_suite("LinkedList implementation tests", suite_linked_list_init, suite_linked_list_clean);
 	CU_add_test(pSuiteLinkedList, "LinkedList_creation", test_create_linked_list);
@@ -28,4 +38,17 @@ void gradle_cunit_register() {
 	CU_add_test(pSuiteLinkedList, "LinkedList_insert", test_insert_linked_list);
 	CU_add_test(pSuiteLinkedList, "LinkedList_get", test_get_linked_list);
 	CU_add_test(pSuiteLinkedList, "LinkedList_removeIndex", test_remove_index_linked_list);
+
+	CU_pSuite pSuiteComparator = CU_add_suite("Comparator implentation tests", suite_comparator_init, suite_comparator_clean);
+	CU_add_test(pSuiteComparator, "Comparator_Char", test_char_comparator);
+	CU_add_test(pSuiteComparator, "Comparator_Short", test_short_comparator);
+	CU_add_test(pSuiteComparator, "Comparator_Int", test_int_comparator);
+	CU_add_test(pSuiteComparator, "Comparator_Long_Int", test_long_int_comparator);
+	CU_add_test(pSuiteComparator, "Comparator_Long_Long", test_long_long_comparator);
+	CU_add_test(pSuiteComparator, "Comparator_U_Char", test_u_char_comparator);
+	CU_add_test(pSuiteComparator, "Comparator_U_Short", test_u_short_comparator);
+	CU_add_test(pSuiteComparator, "Comparator_U_Int", test_u_int_comparator);
+	CU_add_test(pSuiteComparator, "Comparator_U_Long_Int", test_u_long_int_comparator);
+	CU_add_test(pSuiteComparator, "Comparator_U_Long_Long", test_u_long_long_comparator);
+	CU_add_test(pSuiteComparator, "Comparator_CString", test_cstring_comparator);
 }
