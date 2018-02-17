@@ -37,13 +37,28 @@ void test_int_comparator() {
 	int a = 1, b = 2;
 	int result;
 
-	result = cds_ShortComparator(&a, &b);
+	result = cds_IntComparator(&a, &b);
 	CU_ASSERT(result < 0);
 
-	result = cds_ShortComparator(&b, &a);
+	result = cds_IntComparator(&b, &a);
 	CU_ASSERT(result > 0);
 
 	b = 1;
-	result = cds_ShortComparator(&a, &b);
+	result = cds_IntComparator(&a, &b);
+	CU_ASSERT_EQUAL(result, 0);
+}
+
+void test_long_int_comparator() {
+	long int a = 1, b = 2;
+	int result;
+
+	result = cds_LongIntComparator(&a, &b);
+	CU_ASSERT(result < 0);
+
+	result = cds_LongIntComparator(&b, &a);
+	CU_ASSERT(result > 0);
+
+	b = 1;
+	result = cds_LongIntComparator(&a, &b);
 	CU_ASSERT_EQUAL(result, 0);
 }
