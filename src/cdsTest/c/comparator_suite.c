@@ -107,3 +107,18 @@ void test_u_short_comparator() {
 	result = cds_UShortComparator(&a, &b);
 	CU_ASSERT_EQUAL(result, 0);
 }
+
+void test_u_int_comparator() {
+	unsigned int a = 1, b = 2;
+	int result;
+
+	result = cds_UIntComparator(&a, &b);
+	CU_ASSERT(result < 0);
+
+	result = cds_UIntComparator(&b, &a);
+	CU_ASSERT(result > 0);
+
+	b = 1;
+	result = cds_UIntComparator(&a, &b);
+	CU_ASSERT_EQUAL(result, 0);
+}

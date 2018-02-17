@@ -46,7 +46,9 @@ int cds_UShortComparator(void *a, void *b) {
 }
 
 int cds_UIntComparator(void *a, void *b) {
-
+	unsigned int *intA = (unsigned int *)a;
+	unsigned int *intB = (unsigned int *)b;
+	return *intA - *intB;
 }
 
 int cds_ULongIntComparator(void *a, void *b) {
