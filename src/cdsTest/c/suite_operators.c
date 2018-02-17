@@ -41,4 +41,5 @@ void gradle_cunit_register() {
 
 	CU_pSuite pSuiteComparator = CU_add_suite("Comparator implentation tests", suite_comparator_init, suite_comparator_clean);
 	CU_add_test(pSuiteComparator, "Comparator_Char", test_char_comparator);
+	CU_add_test(pSuiteComparator, "Comparator_Short", test_short_comparator);
 }

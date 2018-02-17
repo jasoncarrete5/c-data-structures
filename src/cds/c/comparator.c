@@ -15,7 +15,8 @@ int cds_CharComparator(void *a, void *b) {
 }
 
 int cds_ShortComparator(void *a, void *b) {
-
+	short *shortA = (short *)a, *shortB = (short *)b;
+	return *shortA - *shortB;
 }
 
 int cds_IntComparator(void *a, void *b) {
