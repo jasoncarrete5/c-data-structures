@@ -5,6 +5,7 @@
  */
 
 #include "CDS/comparator.h"
+#include <string.h>
 
 /*
  * Lexicographical char comparator
@@ -64,5 +65,7 @@ int cds_ULongLongComparator(void *a, void *b) {
 }
 
 int cds_CStringComparator(void *a, void *b) {
-
+	const char *strA = (const char *)a;
+	const char *strB = (const char *)b;
+	return strcmp(strA, strB);
 }

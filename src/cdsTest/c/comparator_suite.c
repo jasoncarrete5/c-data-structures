@@ -152,3 +152,18 @@ void test_u_long_long_comparator() {
 	result = cds_ULongLongComparator(&a, &b);
 	CU_ASSERT_EQUAL(result, 0);
 }
+
+void test_cstring_comparator() {
+	const char a[] = "Hello", b[] = "Goodbye";
+	int result;
+
+	result = cds_CStringComparator(a, b);
+	CU_ASSERT(result > 0);
+
+	result = cds_CStringComparator(b, a);
+	CU_ASSERT(result < 0);
+
+	const char c[] = "Hello";
+	result = cds_CStringComparator(a, c);
+	CU_ASSERT_EQUAL(result, 0);
+}
