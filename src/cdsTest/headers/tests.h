@@ -12,3 +12,4 @@ void test_int_comparator();
 void test_long_int_comparator();
 void test_long_long_comparator();
 void test_u_char_comparator();
+void test_u_short_comparator();

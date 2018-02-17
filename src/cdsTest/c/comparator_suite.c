@@ -92,3 +92,18 @@ void test_u_char_comparator() {
 	result = cds_UCharComparator(&a, &b);
 	CU_ASSERT_EQUAL(result, 0);
 }
+
+void test_u_short_comparator() {
+	unsigned short a = 1, b = 2;
+	int result;
+
+	result = cds_UShortComparator(&a, &b);
+	CU_ASSERT(result < 0);
+
+	result = cds_UShortComparator(&b, &a);
+	CU_ASSERT(result > 0);
+
+	b = 1;
+	result = cds_UShortComparator(&a, &b);
+	CU_ASSERT_EQUAL(result, 0);
+}

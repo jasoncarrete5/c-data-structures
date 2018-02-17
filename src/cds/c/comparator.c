@@ -40,7 +40,9 @@ int cds_UCharComparator(void *a, void *b) {
 }
 
 int cds_UShortComparator(void *a, void *b) {
-
+	unsigned short *shortA = (unsigned short *)a;
+	unsigned short *shortB = (unsigned short *)b;
+	return *shortA - *shortB;
 }
 
 int cds_UIntComparator(void *a, void *b) {
