@@ -77,3 +77,18 @@ void test_long_long_comparator() {
 	result = cds_LongLongComparator(&a, &b);
 	CU_ASSERT_EQUAL(result, 0);
 }
+
+void test_u_char_comparator() {
+	unsigned char a = 'A', b = 'B';
+	int result;
+
+	result = cds_UCharComparator(&a, &b);
+	CU_ASSERT(result < 0);
+
+	result = cds_UCharComparator(&b, &a);
+	CU_ASSERT(result > 0);
+
+	b = 'A';
+	result = cds_UCharComparator(&a, &b);
+	CU_ASSERT_EQUAL(result, 0);
+}

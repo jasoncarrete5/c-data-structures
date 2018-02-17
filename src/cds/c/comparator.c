@@ -35,7 +35,8 @@ int cds_LongLongComparator(void *a, void *b) {
 }
 
 int cds_UCharComparator(void *a, void *b) {
-
+	unsigned char *chA = (unsigned char *)a, *chB = (unsigned char *)b;
+	return *chA - *chB;
 }
 
 int cds_UShortComparator(void *a, void *b) {
