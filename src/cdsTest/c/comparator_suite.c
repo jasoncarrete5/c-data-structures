@@ -124,7 +124,7 @@ void test_u_int_comparator() {
 }
 
 void test_u_long_int_comparator() {
-	unsigned int a = 1, b = 2;
+	unsigned long int a = 1, b = 2;
 	int result;
 
 	result = cds_ULongIntComparator(&a, &b);
@@ -135,5 +135,20 @@ void test_u_long_int_comparator() {
 
 	b = 1;
 	result = cds_ULongIntComparator(&a, &b);
+	CU_ASSERT_EQUAL(result, 0);
+}
+
+void test_u_long_long_comparator() {
+	unsigned long long a = 1, b = 2;
+	int result;
+
+	result = cds_ULongLongComparator(&a, &b);
+	CU_ASSERT(result < 0);
+
+	result = cds_ULongLongComparator(&b, &a);
+	CU_ASSERT(result > 0);
+
+	b = 1;
+	result = cds_ULongLongComparator(&a, &b);
 	CU_ASSERT_EQUAL(result, 0);
 }

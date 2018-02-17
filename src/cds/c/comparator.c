@@ -58,7 +58,9 @@ int cds_ULongIntComparator(void *a, void *b) {
 }
 
 int cds_ULongLongComparator(void *a, void *b) {
-
+	unsigned long long *longA = (unsigned long long *)a;
+	unsigned long long *longB = (unsigned long long *)b;
+	return *longA - *longB;
 }
 
 int cds_CStringComparator(void *a, void *b) {
