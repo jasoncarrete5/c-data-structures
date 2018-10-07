@@ -50,13 +50,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Eclipse
-.settings/
-Debug/
-.cproject
-.project
+# IDE
+.vscode
 
-# Gradle
-build/
-.gradle/
-gradle.properties
+build
